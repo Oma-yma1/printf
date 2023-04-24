@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	_printf1("%i", "13");
+	_printf("%i", "13");
 	return (0);
 }

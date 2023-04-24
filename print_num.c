@@ -1,29 +1,27 @@
 #include "main.h"
 /**
  * print_num - print number
- * @n: integer printed
+ * @args: integer printed
  * Return: number
  */
-int print_num(int n)
+int print_num(va_list args)
 {
+int num = va_arg(args, int);
 int count = 0;
-int div = 1;
-if (n < 0)
+if (num < 0)
 {
 _putchar('-');
-n = -n;
 count++;
+num = -num;
 }
-while (div <= n / 10)
+if (num / 10)
 {
-div *= 10;
+va_list args_copy;
+va_copy(args_copy, args);
+count += print_num(args_copy);
+va_end(args_copy);
 }
-do {
-char digit = '0' + n / div;
-_putchar(digit);
-n %= div;
-div /= 10;
+_putchar(num % 10 + '0');
 count++;
-} while (div > 0);
 return (count);
 }
