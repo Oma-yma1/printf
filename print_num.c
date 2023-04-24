@@ -8,30 +8,26 @@ int print_num(va_list args)
 {
 int num = va_arg(args, int);
 int count = 0;
-int n = num;
-int dig = 0;
-int div = 1;
-int digit;
-int i, j;
+char buffer[20];
+int i = 0;
 if (num < 0)
 {
 _putchar('-');
 count++;
 num = -num;
 }
-while (n > 0)
+while (num > 0)
 {
-dig++;
-n /= 10;
+buffer[i++] = num % 10 + '0';
+num /= 10;
 }
-for (i = dig - 1; i >= 0; i--)
+if (i == 0)
 {
-for (j = 0; j < i; j++)
-{
-div *= 10;
+buffer[i++] = '0';
 }
-digit = num / div % 10;
-_putchar(digit + '0');
+while (i > 0)
+{
+_putchar(buffer[--i]);
 count++;
 }
 return (count);
