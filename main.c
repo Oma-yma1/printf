@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	_printf("");
+	_printf("%i", "-2");
 	return (0);
 }

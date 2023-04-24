@@ -23,5 +23,6 @@ int (*get_print_function(char c))(va_list);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
-
+int print_num(int n);
+int _printf1(const char *format, ...);
 #endif
