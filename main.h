@@ -2,7 +2,7 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
  * struct print_func - define function
  * team work by Taha Eddiani & Omayma Zgani
