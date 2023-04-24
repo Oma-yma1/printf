@@ -8,20 +8,27 @@ int print_num(va_list args)
 {
 int num = va_arg(args, int);
 int count = 0;
+int i = 0;
+char buffer[20];
 if (num < 0)
 {
 _putchar('-');
 count++;
 num = -num;
 }
-if (num / 10)
+while (num > 0)
 {
-va_list args_copy;
-va_copy(args_copy, args);
-count += print_num(args_copy);
-va_end(args_copy);
+buffer[i++] = num % 10 + '0';
+num /= 10;
 }
-_putchar(num % 10 + '0');
+if (i == 0)
+{
+buffer[i++] = '0';
+}
+while (i > 0)
+{
+_putchar(buffer[--i]);
 count++;
+}
 return (count);
 }

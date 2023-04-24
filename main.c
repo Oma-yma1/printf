@@ -2,6 +2,7 @@
 
 int main(void)
 {
-	_printf("%i", "13");
+int x = 12;
+	_printf("%d", x);
 	return (0);
 }
