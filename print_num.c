@@ -12,7 +12,8 @@ int count = 0;
 char *buffer;
 int i = 0;
 int temp = num;
-if (num < 0)
+if (num < 0
+		)
 {
 _putchar('-');
 count++;
