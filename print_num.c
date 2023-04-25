@@ -3,20 +3,14 @@
 /**
  * print_num_helper - a helper function for print_num
  *
- * @n: parameter n
+ * @list: parameter
  * Return: return int
  */
-int print_num_helper(int n)
+int print_num_helper(va_list list)
 {
-	int count = 0;
-
-	if (n / 10)
-		count += print_num_helper(n / 10);
-
-	_putchar(n % 10 + '0');
-	count++;
-
-	return (count);
+int num_length;
+num_length = print_num(list);
+return (num_length);
 }
 
 /**
@@ -26,25 +20,27 @@ int print_num_helper(int n)
  */
 int print_num(va_list args)
 {
-int n = va_arg(args, int);
-int count = 0;
-
+int n;
+int div;
+int len;
+unsigned int num;
+n = va_arg(args, int);
+div = 1;
+len = 0;
 if (n < 0)
 {
-	_putchar('-');
-	count++;
-	n = -n;
+len += _putchar('-');
+num = n * -1;
 }
-if (n == 0)
+else
+num = n;
+for (; num / div > 9; )
+div *= 10;
+for (; div != 0; )
 {
-	_putchar('0');
-	return (++count);
+len += _putchar('0' + num / div);
+num %= div;
+div /= 10;
 }
-if (n / 10)
-	count += print_num_helper(n / 10);
-
-_putchar(n % 10 + '0');
-count++;
-
-return (count);
+return (len);
 }
