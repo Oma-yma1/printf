@@ -3,8 +3,7 @@
  * print_num - print number
  * @args: integer printed
  * Return: number
-
-*/
+ */
 int print_num(va_list args)
 {
 int num = va_arg(args, int);
@@ -21,7 +20,7 @@ num = -num;
 }
 while (temp > 0)
 {
-temp/= 10;
+temp /= 10;
 i++;
 }
 buffer = malloc(i + 1);
@@ -45,5 +44,5 @@ _putchar(buffer[i]);
 count++;
 }
 free(buffer);
-return(count);
+return (count);
 }
