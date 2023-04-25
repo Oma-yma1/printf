@@ -17,6 +17,10 @@ int (*get_print_function(char c))(va_list)
 		{'d', print_num_helper},
 		{'i', print_num_helper},
 		{'b', print_binary},
+		{'u', print_u},
+		{'o', print_o},
+		{'x', print_x},
+		{'X', print_X},
 		{0, NULL}
 	};
 

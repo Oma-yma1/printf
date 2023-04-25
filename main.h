@@ -27,5 +27,10 @@ int print_num(va_list args);
 int print_num_helper(va_list list);
 int print_binary(va_list args);
 int print_binary_helper(unsigned int num);
+int print_u(va_list args);
+int print_o(va_list args);
+int print_x(va_list args);
+int print_X(va_list args);
+unsigned int uint_to_str(unsigned int num, char *str, unsigned int base);
 
 #endif
