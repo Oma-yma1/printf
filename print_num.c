@@ -6,43 +6,30 @@
  */
 int print_num(va_list args)
 {
-int num = va_arg(args, int);
+int n = va_arg(args, int);
 int count = 0;
-char *buffer;
+char buffer[17];
 int i = 0;
-int temp = num;
-if (num < 0)
+if (n == 0)
+{
+_putchar('0');
+return (1);
+}
+if (n < 0)
 {
 _putchar('-');
 count++;
-num = -num;
+n = -n;
 }
-while (temp > 0)
+while (n > 0)
 {
-temp /= 10;
-i++;
-}
-buffer = malloc(i + 1);
-if (!buffer)
-{
-fprintf(stderr, "Error: Out of memory\n");
-return (0);
-}
-i = 0;
-while (num > 0)
-{
-buffer[i++] = num % 10 + '0';
-num /= 10;
-}
-if (i == 0)
-{
-buffer[i++] = '0';
+buffer[i++] = (n % 10) + '0';
+n /= 10;
 }
 while (i-- > 0)
 {
 _putchar(buffer[i]);
 count++;
 }
-free(buffer);
 return (count);
 }
