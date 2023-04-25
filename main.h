@@ -25,5 +25,7 @@ int print_string(va_list args);
 int print_percent(va_list args);
 int print_num(va_list args);
 int print_num_helper(va_list list);
+int print_binary(va_list args);
+int print_binary_helper(unsigned int num);
 
 #endif
