@@ -31,10 +31,6 @@ int _printf(const char *format, ...)
 				_putchar(format[i]);
 				count += 2;
 			}
-			else if (format[i] == 'd' || format[i] == 'i')
-			{
-				count += print_decimal(args);
-			}
 			else
 			{
 				count += f(args);
