@@ -2,7 +2,7 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
+
 /**
  * struct print_func - define function
  * team work by Taha Eddiani & Omayma Zgani
@@ -24,4 +24,7 @@ int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
 int print_num(va_list args);
+int print_decimal(va_list args);
+int print_decimal_aux(int n);
+
 #endif

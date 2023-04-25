@@ -9,15 +9,12 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
+	int i, count = 0, (*f)(va_list);
 	va_list args;
-	int (*f)(va_list);
 
 	if (format == NULL)
 		return (-1);
-
 	va_start(args, format);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -34,6 +31,10 @@ int _printf(const char *format, ...)
 				_putchar(format[i]);
 				count += 2;
 			}
+			else if (format[i] == 'd' || format[i] == 'i')
+			{
+				count += print_decimal(args);
+			}
 			else
 			{
 				count += f(args);
@@ -47,6 +48,5 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-
 	return (count);
 }
