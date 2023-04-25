@@ -17,6 +17,7 @@ typedef struct print_func
 }
 print_t;
 
+unsigned int uint_to_str(unsigned int num, char *str, unsigned int base);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int (*get_print_function(char c))(va_list);
@@ -31,6 +32,5 @@ int print_u(va_list args);
 int print_o(va_list args);
 int print_x(va_list args);
 int print_X(va_list args);
-unsigned int uint_to_str(unsigned int num, char *str, unsigned int base);
 
 #endif
